@@ -288,7 +288,7 @@ if (Title == null) Title = "teleSUR JRVO";
 
 <!--<link href='//fonts.googleapis.com/css?family=Arimo:400,700,400italic' rel='stylesheet' type='text/css'>-->
 <!--<link href="/system/modules/com.tfsla.diario.telesur/resources/css/reset.css" rel="stylesheet" type="text/css" />
-<link href="/system/modules/com.tfsla.diario.telesur/resources/css/css.css" rel="stylesheet" type="text/css" />-->
+<!--<link href="/system/modules/com.tfsla.diario.telesur/resources/css/css.css" rel="stylesheet" type="text/css" />-->
 <link href="/system/modules/com.tfsla.diario.telesur/resources/css/flexslider.css" rel="stylesheet" type="text/css" media="screen" />
 <!-- jQuery -->
 <%--<script src="/system/modules/com.tfsla.diario.telesur/resources/js/jquery-1.11.0.min.js"></script>--%>

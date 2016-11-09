@@ -1,8 +1,9 @@
-        
+
+<%@ include file="TS_Common_Libraries.jsp" %>
 html {
   font-size: 100%;
 }
-body {
+body !important;{
   font-size: 15px;
   font-size: 0.9375rem;
   font-family: "Open sans", Helvetica, Arial, sans-serif;
@@ -12,6 +13,25 @@ body {
 .topspace {
   margin-top: 40px;
 }
+.panel-body p{
+  color: #999;
+}
+#main .container{
+  max-width:1080;
+}
+#main .container1{
+  max-width:1080;
+}
+
+.section-title{
+background: #0080b7 none repeat scroll 0 0;
+    border: medium double;
+    color: white;
+}
+.row{
+  color: #999;
+}
+
 
 /*********************************************************************
 
@@ -83,53 +103,109 @@ footer .legal span{color:#4d537d;display:none}
 *********************************************************************/
 .banners {
     text-align: center;
-}
-.twitter{
-	text-aling:center;
+    /*border: double;
+    border-color: white; 
+    background:#0080b7;*/
 }
 
-.importante article  h2 {
-    font-size: 20px;
-    line-height: 28px;
-    padding: 15px 20px;
-    width: calc(100% - 40px);
-    color:white;
+
+.descripcionnd {
+  text-align: center;
+  /*background: rgb(22 22 22);*/
+  font-weight:200;
+  font-family: "Open sans",Helvetica,Arial,sans-serif;
+  color: #666666;
+  
 }
-.importante article  h2 {
-    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
-    bottom: 0;
-    color: #fff;
-    font-size: 16px;
-    left: 0;
-    line-height: 18px;
-    padding: 12px 15px;
+.descripcionnd h4{
+  
+  /*color: #999;*/
+}
+
+.importante{
+  border: double;
+  border-color: #666666;
+  
+}
+
+/*********************************************************************
+
+
+                            NOTICIAS SECUNDARIAS
+
+
+
+********************************************************************/
+/*
+.title {
+   display: block;
+   margin: 0 2em;
+   text-indent: 0;
+   text-transform: uppercase;
+   max-width:300;
+   font-size:10px;
+   margin-left:0;
+   margin-right:0;    
+   padding:0;
+}
+*/
+
+
+.title h2 a{
+
+  text-aling:;
+  color:black;
+}
+
+.col-lg-4 { /*nota secundarias*/
+  width:33.333%;
+  height:35%;
+}
+
+.details {
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+}
+.details a{
+    color: #bd1550;
+
+}
+
+/*
+.cover .more {
+    background: #bd1550 none repeat scroll 0 0;
+    border-radius: 1px 0 0 1px;
+    bottom: 15px;
+    color: white;
+    font-size: 0.75rem;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 20px;
     position: absolute;
-    z-index: 9;
+    right: 0;
+    text-shadow: 0 1px 0 #780d33;
+    text-transform: uppercase;
 }
-.importante article h4 {
-    background: #f0f0f0 none repeat scroll 0 0;
-    font-size: 15px;
-    height: 40px;
-    line-height: 20px;
-    padding: 22px;
+*/
+.secundaria h2{
+    
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 0;
+    text-transform: uppercase;
+    padding:auto;
 }
-.importante .wpImg article h2{
-	background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
-	position: absolute;
-	font-size: 25px;
-    line-height: 28px;
-    padding: 15px 20px;
-    width: calc(100% - 40px);
-    text-aling: center;
+.secundaria h2 a{
+    
+    color:#333;
+    margin-left: auto;
+    /*margin-right: auto;*/
 }
-.importante .wpImg article h4{
-	background: #f0f0f0 none repeat scroll 0 0;
-    font-size: 15px;
-    height: 40px;
-    line-height: 20px;
-    padding: 22px;
-    text-aling: center;
-}
+
+
+
 
 
 /*********************************************************************
@@ -145,8 +221,8 @@ footer .legal span{color:#4d537d;display:none}
 
 /*
 header .parallax .wrap nav {
-	text-align: center;
-	
+  text-align: center;
+  
 }
 */
 
@@ -160,32 +236,32 @@ header .parallax .wrap nav ul li a {
 }
 
 header .parallax .wrap .bartop {
-	color:#ababab
-	background: yellow;
-	
+  color:#ababab
+  background: yellow;
+  
 }
 header .parallax .divmenu{
-	position: relative;
-	font-family: oblique;
+  position: relative;
+  font-family: oblique;
 }
 
 
 header .container-fluid {
 
-	background-color:transparent;
-	background:transparent;
+  background-color:transparent;
+  background:transparent;
 }
 header .parallax .wrap .sesionHead .barTop{
 
-	vertical-aling= middle;
-	color: #ababab;
+  vertical-aling= middle;
+  color: #ababab;
 }
 
 
 header .barTop .btnLangi a{
-	text-aling: left;
-	color: #ababab;
-	float: left;
+  text-aling: left;
+  color: #ababab;
+  float: left;
 }
 
 header .parallax .barTop .btnLangi  {
@@ -261,7 +337,7 @@ header ul, ol {
 
 
 .btnLogueado{
-	display: inline-block;
+  display: inline-block;
 }
 
 
@@ -279,14 +355,14 @@ header .parallax .wrap .sesionHead .btnLogueado {
 }
 
 header .parallax .wrap .sesionHead .btnLogueado span{
-	display:block;
-	margin-right:23px
+  display:block;
+  margin-right:23px
 }
 
 
 header .parallax .wrap .sesionHead .btnLogueado ul li{
-	padding:5px 0;
-	width:100%;
+  padding:5px 0;
+  width:100%;
 }
 header .parallax .wrap .sesionHead .btnLogueado i {
     -moz-border-bottom-colors: none;
@@ -308,24 +384,24 @@ header .parallax .wrap .sesionHead .btnLogueado i {
 }
 
 header .parallax .wrap .sesionHead .btnLogueado ul li:nth-child(2){
-	border-top:#393939 1px solid;
-	border-bottom:#393939 1px solid
+  border-top:#393939 1px solid;
+  border-bottom:#393939 1px solid
 }
 
 
 header .parallax .wrap .sesionHead .btnLogueado.actv{
-	background:rgba(0,0,0,0.6);
-	color:#FFF;position:relative;
-	z-index:1
+  background:rgba(0,0,0,0.6);
+  color:#FFF;position:relative;
+  z-index:1
 }
 header .parallax .wrap .sesionHead .btnLogueado.actv i{
-	transform:rotate(315deg);
-	-webkit-transform:rotate(315deg);
-	border-color:#FFF;top:11px
+  transform:rotate(315deg);
+  -webkit-transform:rotate(315deg);
+  border-color:#FFF;top:11px
 }
 header .parallax .wrap .sesionHead .btnLogueado.actv ul{
-	padding-top:15px;
-	height:73px}
+  padding-top:15px;
+  height:73px}
 
 header .parallax .wrap .sesionHead .btnLogueado ul li a:hover;{
 
@@ -344,8 +420,8 @@ header .parallax .barTop .sesionHead {
     top: 10px;
 }
 
-						/*Fin estilos de header telesur*/
-						
+            /*Fin estilos de header telesur*/
+            
 
 /*estilos header*/
 
