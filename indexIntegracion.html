@@ -140,7 +140,7 @@
 	<div class="row section featured topspace" >
 		<strong><h2 class="section-title" style="background:#0080b7 none repeat ; color: white ; border: double"><strong><span>NOTICIA DESTACADA</span></h2></strong>
 		
- 	<cms:include page="/system/modules/com.tfsla.diario.telesur/elements/TS_Common_Destacada1jrvo.jsp" >
+ 	<cms:include page="/system/modules/com.tfsla.diario.telesur/elements/TS_Common_Destacada1jrvo.jsp">
 		<cms:param name="pageSeccion"><%=pageSeccion%></cms:param>        
 	</cms:include> 
  		
@@ -165,7 +165,7 @@
 						<!-- /fin section NOTAS SECUNDARIAS-->
 
 	
-<br><br>
+
 						<!-- / section NOTICIAS MIXTAS-->
 <%--
 <main id="main">
@@ -181,8 +181,46 @@
 </main>
 --%>		
 						<!-- /FIN section NOTICIAS MIXTAS-->
+						
+						
+						<!-- / SECCION LISTA DE NOTA POR CATEGORIA (deportes)-->
+						
+<main id="main">
+   <div class="container">
+	<div class="row section featured topspace" >
+		<strong><h2 class="section-title" style="background:#0080b7 none repeat ; color: white ; border: double"><strong><span>DEPORTES</span></h2></strong>
+	</div>
+	<div>
+	  <cms:include page="/system/modules/com.tfsla.diario.telesur/elements/TS_Home_Deportesjrvo.jsp"> 
+		  <cms:param name="pageSeccion"><%=pageSeccion%></cms:param>
+	</cms:include>   
+	</div>
+		
+
+	</div>	<!-- /container -->
+</main>					
+						<!-- / FIN SECCION LISTA DE NOTA POR CATEGORIA (deportes)-->
 			
-							
+						<!-- / SECCION LISTA DE NOTA POR CATEGORIA (deportes)-->
+<main id="main">
+   <div class="container">
+	<div class="row section featured topspace" >
+		<strong><h2 class="section-title" style="background:#0080b7 none repeat ; color: white ; border: double"><strong><span>VIDEO</span></h2></strong>
+	</div><%--
+	<div>
+	  <cms:include page="/system/modules/com.tfsla.diario.telesur/elements/TS_Home_Videojrvo.jsp"> 
+		  <cms:param name="pageSeccion"><%=pageSeccion%></cms:param>
+	</cms:include>   
+	</div>
+	--%>
+
+	</div>	<!-- /container -->
+</main>				
+			
+						<!-- /FIN SECCION LISTA DE NOTA POR CATEGORIA (deportes)-->
+			
+			
+<%--				
 <main id="main">
 
 	<div class="container">		
@@ -192,9 +230,9 @@
 				<p class="lead text-center text-muted">Let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. you <a href="about_integracion.jsp">measure</a> yourself by the people who measure themselves by you. it only took me <a href="sidebarright_morepages_integracion.jsp">six days</a>. </p>
 			</div>
 		</div> <!-- / section servicios-->
-		--%>
+		
 		<div class="row section featured topspace" >
-			<strong><h2 class="section-title" style="background:#0080b7 none repeat ; color: white ; border: double"><strong><span>Servicios</span></h2></strong>
+			<strong><h2 class="section-title" style="background:#0080b7 none repeat ; color: white ; border: double"><strong><span>ULTIMAS NOTICIAS</span></h2></strong>
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
 					<h3 class="text-center" style=" font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 1.5rem; font-weight: bold; line-height: 1.4em; margin: 0 0 25px; text-transform: uppercase; vertical-align: middle;">DEPORTE</h3>
@@ -218,7 +256,7 @@
 				</div>
 		</div><!--fin seccion -->
 			                                       
-			
+		--%>	
 		<!--descargar template-->		
 <%--
 		<div class="row section topspace">
@@ -241,11 +279,11 @@
 				</p>-->
 			</div>
 		</div> <!-- /section -->
---%>
+
 	</div>	<!-- /container -->
 
 </main>
-
+--%>
 		
 
 <!--LLAMADO DEL FOOTER PROPIO-->
