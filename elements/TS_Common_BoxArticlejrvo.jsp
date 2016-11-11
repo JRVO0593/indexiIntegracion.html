@@ -102,8 +102,8 @@ String path = ( request.getParameter("path") != null ) ? request.getParameter("p
 			<a href="<nt:link/>" title="<nt:title value='home' />" alt="<nt:title value='home' />">
 				<nt:title value="home" maxlength="63" />
 			</a>
-		</h2>
-<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a> | <a href="">Logotype</a></span>
+</h2>
+<span class="details"><a href="<nt:link/>" title="${imageDescription}" alt="${imageDescription}">Sobre la noticia</a></span>
 
 		
 

@@ -13,9 +13,10 @@ Blocks.put("Publicidad-728x90-b","TS_Home_Publicidad_b.jsp");
 Blocks.put("Publicidad-728x90-c","TS_Home_Publicidad_c.jsp");
 Blocks.put("Publicidad-728x90-d","TS_Home_Publicidad_d.jsp");
 Blocks.put("Publicidad-728x90-e","TS_Home_Publicidad_e.jsp");
-Blocks.put("Video","TS_Home_VideoJo.jsp");
+Blocks.put("Video","I_TS_Videosjrvo.jsp");
 Blocks.put("Destacamos","TS_Home_Destacamos.jsp");
-//Blocks.put("America Latina","TS_Home_AmericaLatinaJo.jsp");
+
+
 Blocks.put("America Latina","TS_Home_AmericaLatinaJo.jsp");
 Blocks.put("En Imagenes", "TS_Home_InPictures.jsp");
 Blocks.put("Mundo", "TS_Home_Mundo.jsp");

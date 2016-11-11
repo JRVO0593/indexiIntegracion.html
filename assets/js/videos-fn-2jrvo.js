@@ -1,15 +1,15 @@
 
 
 jQuery.fn.GetVideos = function(){
-	
+	//consumo api
 	var path 	= "http://multimedia.telesurtv.net/api/clip/?callback=?";
 	var categoria	= "";
-	var fecha	= "";
 	var descripcion = "";
+	var fecha	= "";
 	var $FRAME	= "";
 	var $ASIDE	= "";
 	var tipo	= "";
-	
+	//cantidad de videos sugeridos
 	$.getJSON(path,{
 		detalle:"completo",
 		seleccionado:"true",
@@ -34,24 +34,27 @@ jQuery.fn.GetVideos = function(){
 				
 			if(i==0){
 				$FRAME  = '<article class="important">';
-				$FRAME += '<div class="wpVid" id="VideoDestacado"></div>';
 				$FRAME += '<hgroup id="VideohGroup"></hgroup>';
-				$FRAME += '</article>';
+				$FRAME += '<div class="wpVid" id="VideoDestacado"></div>'; 
+				$FRAME += '</article>'
 				$ASIDE += '<div class="aside">';
 				
 				VideoInfo = GetVideoInfo(categoria_slug,categoria_nombre,tipo,fecha,titulo,video_file,video_slug);
 			}
+			//videos sugeridos
+			$ASIDE += '<ul class="spost_nav ; col-xs-12 col-sm-6 col-md-4 col-lg-5">';
+			$ASIDE += '<li>';
+			$ASIDE += '<div class=" media wow fadeInDown" >'; // style="float:left">
+			//$ASIDE += '<a href="javascript:;" onclick="'+watchVideoFN+'"><img src="/arte/ico-play.png" alt="Telesur" class="icoPlay"></a>';
+			$ASIDE += '<a class="media-left" href="javascript:;" onclick="'+watchVideoFN+'"><img src="'+imagen+'" height="130" alt="Telesur"></a>';
 			
-			$ASIDE += '<article class="sideNew">';
-			$ASIDE += '<div class="wpSmallImg">';
-			$ASIDE += '<a href="javascript:;" onclick="'+watchVideoFN+'"><img src="/arte/ico-play.png" alt="Telesur" class="icoPlay"></a>';
-			$ASIDE += '<a href="javascript:;" onclick="'+watchVideoFN+'"><img src="'+imagen+'" height="82" alt="Telesur"></a>';
+			$ASIDE += '<div class="media-body">';
+			$ASIDE += '<h6>'+categoria+'<span>'+duracion+'</span></h6>';
+			$ASIDE += '<h5><a class="catg_title" href="javascript:;" onclick="'+watchVideoFN+'">'+titulo.slice(0,70)+'</a></h5>';
 			$ASIDE += '</div>';
-			$ASIDE += '<div class="overflow">';
-			$ASIDE += '<h5>'+categoria+'<span>'+duracion+'</span></h5>';
-			$ASIDE += '<h4><a href="javascript:;" onclick="'+watchVideoFN+'">'+titulo.slice(0,70)+'</a></h4>';
 			$ASIDE += '</div>';
-			$ASIDE += '</article>';
+			$ASIDE += '</li>';
+			$ASIDE += '</ul>';
 			
 			if(i==data.length){
 				$ASIDE += '</div>';
@@ -64,7 +67,7 @@ jQuery.fn.GetVideos = function(){
 			file: data[0].archivo_url,
 			image: data[0].thumbnail_gigante,
 			width: "100%",
-			aspectratio: "16:9"
+			aspectratio: "4:2"
 		});
 		
 		$("#VideohGroup").html(VideoInfo);
@@ -82,8 +85,10 @@ jQuery.fn.GetCorresponsales = function(){
 	var fecha	= "";
 	var descripcion = "";
 	var $LIST	= "";
-	
-	$.getJSON(path,{
+
+// --------------------------------------- CORRES--------------------------------------------------	
+
+$.getJSON(path,{
 		detalle:"completo",
 		corresponsal:"no_es_nulo",
 		ultimo:"6"
@@ -97,19 +102,20 @@ jQuery.fn.GetCorresponsales = function(){
 			video_slug	= data[i].slug;
 			corresp_slug	= data[i].corresponsal.slug;
 			
-			$LIST  = '<article class="sideNew">';
-			$LIST += '<div class="wpSmallImg">';
-			$LIST += '<div id="Corresponsal-'+i+'">';
-			$LIST += '<a href="http://multimedia.telesurtv.net/web/telesur/#!video/noticia/'+video_slug+'" target="_blank"><img src="/arte/ico-play.png" alt="Telesur" class="icoPlay"></a>';
-			$LIST += '<a href="http://multimedia.telesurtv.net/web/telesur/#!video/noticia/'+video_slug+'" target="_blank"><img src="'+imagen+'" height="82" alt="Telesur"></a>';	
-			
-			$LIST += '</div>';
-			$LIST += '</div>';
-			$LIST += '<div class="overflow">';
-			$LIST += '<h4><a href="http://multimedia.telesurtv.net/web/telesur/#!video/noticia/'+video_slug+'" target="_blank">'+titulo.slice(0,70)+'</a></h4>';
+			$LIST  = '<div class="single_post_content_left">';
+			$LIST += '<ul class="spost_nav">';
+			$LIST += '<li>';
+			$LIST += '<div class="media wow fadeInDown" id="Corresponsal-'+i+'" style="margin-left:8px;">';
+			$LIST += '<a class="media-left" href="http://multimedia.telesurtv.net/web/telesur/#!video/noticia/'+video_slug+'" target="_blank"><img src="'+imagen+'" height="60" alt="Telesur"></a>';	
+
+			$LIST += '<div class="media-body">';
+			$LIST += '<h5><a class="catg_title" href="http://multimedia.telesurtv.net/web/telesur/#!video/noticia/'+video_slug+'" target="_blank">'+titulo.slice(0,70)+'</a></h5>';
 			$LIST += '<a href="http://multimedia.telesurtv.net/web/telesur/lista/noticia/corresponsales--'+corresp_slug+'" target="_blank" class="autor">'+corresponsal+'</a>';
 			$LIST += '</div>';
-			$LIST += '</article>';
+			$LIST += '</div>';			
+			$LIST += '</li>';
+			$LIST += '</ul>';
+			$LIST += '</div>';	
 			
 			$("#CorresContenedor").append($LIST);
 			
@@ -144,12 +150,12 @@ jQuery.fn.GetCorresponsalINT = function(){
 			$LIST  = '<li><article class="videoINT">';
 			$LIST += '<div class="wpSmallImg">';
 			$LIST += '<div id="Corresponsal-'+i+'">';
-			$LIST += '<a href="http://multimedia.telesurtv.net/web/telesur/#!es/video/'+video_slug+'" target="_blank"><img src="/arte/ico-play.png" alt="Telesur" class="icoPlay"></a>';
+			//$LIST += '<a href="http://multimedia.telesurtv.net/web/telesur/#!es/video/'+video_slug+'" target="_blank"><img src="/arte/ico-play.png" alt="Telesur" class="icoPlay"></a>';
 			$LIST += '<a href="http://multimedia.telesurtv.net/web/telesur/#!es/video/'+video_slug+'" target="_blank"><img src="'+imagen+'" height="82" alt="Telesur"></a>';
 			$LIST += '</div>';
 			$LIST += '</div>';
 			$LIST += '<div class="overflow">';
-			$LIST += '<h4><a href="http://multimedia.telesurtv.net/web/telesur/#!es/video/'+video_slug+'" target="_blank">'+titulo.slice(0,70)+'</a></h4>';
+			$LIST += '<h5><a href="http://multimedia.telesurtv.net/web/telesur/#!es/video/'+video_slug+'" target="_blank">'+titulo.slice(0,70)+'</a></h5>';
 			$LIST += '<a href="http://multimedia.telesurtv.net/web/telesur/#!es/lista/noticia/corresponsales--'+corresp_slug+'" target="_blank" class="autor">'+corresponsal+'</a>';
 			$LIST += '</div>';
 			$LIST += '</article></li>';
@@ -163,7 +169,7 @@ jQuery.fn.GetCorresponsalINT = function(){
 		
 	});//END DONE
 	
-}//END GetCorresponsales interna
+} //END GetCorresponsales interna
 
 jQuery.fn.watchVideo = function(file,image,categoria_slug,categoria_nombre,tipo,fecha,titulo,video_slug){
 
@@ -181,19 +187,19 @@ jQuery.fn.watchCorresponsal = function(i,slug){
 	var telesur_explicito = OMPlayer.setup({
 		id: 'Corresponsal-'+i,
 		slug: slug,
-		width: 146, height: 82
-	});
+		width: 300, height: 150
+						});
 }
 
 function GetVideoInfo(categoria_slug,categoria_nombre,tipo,fecha,titulo,video_slug){
-	$hGroup = '<h5>';
+	$hGroup = '<h6>';
 	if(categoria_nombre != ""){
 		$hGroup += '<a href="http://videos.telesurtv.net/videos/'+tipo+'/categoria/'+categoria_slug+'">'+categoria_nombre+'</a> <span>&middot;</span> ';
 	}
 	$hGroup += '<span>'+fecha+'</span>';
-	$hGroup += '</h5>';
+	$hGroup += '</h6>';
 	//$hGroup += '<h3><a href="http://multimedia.telesurtv.net/web/telesur/#!es/video/'+video_slug+'" TARGET="_blank">'+titulo+'</a></h3>';
-	$hGroup += '<h3><a href="'+navegador_url+'" TARGET="_blank">'+titulo+'</a></h3>';
+	$hGroup += '<h4><a href="'+navegador_url+'" TARGET="_blank">'+titulo+'</a></h4>';
 
 	return $hGroup;
 }

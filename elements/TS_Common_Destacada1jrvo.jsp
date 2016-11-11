@@ -62,7 +62,7 @@
                         </nt:preview-image>         
                     </div>
                 </nt:conditional-include>
-  
+  <!--previsualizacion de videos -iframe - embedded- video flash-->
                 <nt:conditional-include oncondition="${news.homePreview == 'videoYouTube'}">
                     <nt:video-youtube>
                         <nt:conditional-include onposition='1'>
@@ -119,6 +119,7 @@
                 </nt:conditional-include>
                  
   </div>  
+  
   <div class="descripcionnd">  
      <h2> <a href="<nt:link/>" title="<nt:title value='home' />"> <nt:title value='home' /> </a></h2>
       

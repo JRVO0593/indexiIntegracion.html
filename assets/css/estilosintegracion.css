@@ -1,3 +1,27 @@
+/*********************************************************************
+
+
+                            SECCION BLOGS
+
+
+
+*********************************************************************/
+
+
+
+
+
+
+
+
+/*********************************************************************
+
+
+                            FIN SECCION BLOGS
+
+
+
+*********************************************************************/
 
 <%@ include file="TS_Common_Libraries.jsp" %>
 html {
@@ -127,6 +151,9 @@ footer .legal span{color:#4d537d;display:none}
   border-color: #666666;
   
 }
+.descripcionnd a{
+  color:#bd1550;
+}
 
 /*********************************************************************
 
@@ -204,9 +231,98 @@ footer .legal span{color:#4d537d;display:none}
     /*margin-right: auto;*/
 }
 
+/*********************************************************************
+
+
+                            SECCION DEPORTES
 
 
 
+*********************************************************************/
+.blocksports h6 {
+  color:#6bbe3d;
+  font-size:20px;
+  font-family:"bold";
+  margin-top:0;
+  border-bottom:1px solid #e3e3e3;
+  padding-bottom:8px;
+}
+.blocksports h6 img{
+  margin-left:10px;
+
+}
+.blocksports h6{
+  color:#bd1550;
+}
+
+/*********************************************************************
+
+
+                          seccion video
+
+
+
+*********************************************************************/
+.hvideos h5 a{
+  color: #bd1550; 
+}
+.hvideos h5{
+  text-aling:center;
+}
+/*descripcion de video grande*/
+article hgroup {
+  background: black none repeat scroll 0 0;
+  padding: 8px;
+}
+#VideohGroup h6 a{
+  color:#bd1550;
+  font-size:16px;
+}
+#VideohGroup h4 a{
+  color:#bd1550;
+  font-size:24px;
+}
+/*descripcion video sugeridos aside*/
+.media-body{
+  max-width:200px;
+  height:70;
+}
+.media-body h6{
+  color:#bd1550;
+  font-size:16px;
+  margin:5px 5px 5px 5px;
+}
+.media-body h5 a {
+  color:#bd1550;
+  font-size:10px;
+  margin:5px 5px 5px 5px;
+  content-justify:center;
+}
+.media-body h6 a{
+  color:#bd1550;
+  font-size:14px;
+}
+.aside{
+  margin-top:15px;
+  margin-left:24px;
+}
+
+.block.videos article.sideNew .overflow {
+  padding: 10px 5px 5px 0;
+}
+.overflow {
+  overflow: hidden;
+}
+.aside .media wow fadeInDown {
+  background:red;
+}
+.media-body{
+  background:black;
+}
+.spost_nav{
+  max-width:200px;
+
+}
 
 /*********************************************************************
 
