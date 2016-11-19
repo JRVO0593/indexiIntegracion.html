@@ -1,27 +1,4 @@
-/*********************************************************************
 
-
-                            SECCION BLOGS
-
-
-
-*********************************************************************/
-
-
-
-
-
-
-
-
-/*********************************************************************
-
-
-                            FIN SECCION BLOGS
-
-
-
-*********************************************************************/
 
 <%@ include file="TS_Common_Libraries.jsp" %>
 html {
@@ -55,6 +32,104 @@ background: #0080b7 none repeat scroll 0 0;
 .row{
   color: #999;
 }
+
+/*********************************************************************
+
+
+                            SECCION BLOGS
+
+
+
+*********************************************************************/
+
+.ocms_de_bt {
+  position:absolute !important;
+}
+.blogtit .her {
+  font-size: 2.5rem;
+  font-family:"sans-serif";
+  color:#333333;
+}
+.contblogint p{
+  color:#999;
+  margin:0 0 10px;
+}
+.topblogright .her {
+  font-size: 1.5rem;
+  font-family:"sans-serif";
+  color:#bd1550;
+}
+.topblogleft{
+  color:#999; 
+
+} 
+.topblogright{
+  
+}
+.blogrs a{
+  font-size: 1.5rem;
+  font-family:"sans-serif";
+  color:#bd1550;
+  /*margin-left:280;*/
+}
+.addthisjrvo{
+  display:inline-block;
+  max-width:50 !important;
+  max-height:50 !important;
+  white-space:nowrap;
+}
+
+.addthis_toolbox a{
+  background:#999;
+  display:inline-block;
+  max-width:50 !important;
+  max-height:50 !important;
+}
+
+.center-block {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.readblog{
+  height:110px;
+  margin-left:305px;
+}
+a .readblog {
+  height:110px;
+  margin-left:295px;
+}
+/*********************************************************************
+
+
+                            SECCION BLOGS-RIGHT COLUMN
+
+
+
+*********************************************************************/
+.tabnew li a {
+   color:#bd1550 !important;
+   background:#999;
+}
+.tabnew{
+  display:inline-block;
+  max-width:100px;
+  max-height:100px;
+}
+
+.contimgsli a {
+  color:#999;
+}
+.titslidenew a{
+  color:#999;
+}
+autslidenew a{
+  color:#bd1550;
+}
+
+
+
 
 
 /*********************************************************************
@@ -323,6 +398,9 @@ article hgroup {
   max-width:200px;
 
 }
+
+
+
 
 /*********************************************************************
 
