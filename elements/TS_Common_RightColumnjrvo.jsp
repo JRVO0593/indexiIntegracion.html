@@ -7,56 +7,19 @@
 
 <div class="col-for"><!-- colmna izq col-for -->
 	<div class="row clear">  
-		<cms:include page="TS_Common_Blocksjrvo.jsp">
+		<cms:include page="TS_Blogs_Ranking.jsp">
         		<cms:param name="template"><%=template %>_1</cms:param>
 		</cms:include>	
 	</div>
 	
 	
-         	
-	
-		<%--<div class="row clear"> 
-			<div class="bannersblog cont">
-				<cms:include page="TS_Common_Banners.jsp">
-					<cms:param name="template">Analysis</cms:param>
-					<cms:param name="key">Advert-300x250-a</cms:param>
-				</cms:include>
-			</div>              
-		</div>--%>
-	
-					
-	<%--<% if (template.equals("Blog") || template.equals("SoyReportero")) { %>
-	
-		<div class="row clear"> 
-			<div class="bannersblog cont">
-				<cms:include page="TS_Common_Banners.jsp">
-					<cms:param name="template"><%=template %></cms:param>
-					<cms:param name="key">Advert-300x250-a</cms:param>
-				</cms:include>
-			</div>              
-		</div>
-	<% } else { %>	
-		<div class="row clear"> 
-			<div class="banners cont">
-				<cms:include page="TS_Common_Banners.jsp">
-					<cms:param name="template"><%=template %></cms:param>
-					<cms:param name="key">Advert-300x250-b</cms:param>
-				</cms:include>
-			</div>              
-		</div>
-	<% } %> --%>
-
 	<%
-	   if(template.equals("NewsCategory") && uri.equals("/SubSecciones/news/sport/index.html") ){
+	   if(template.equals("NewsCategory") && uri.equals("/SubSecciones/news/opinion/index.html") ){
 	%>
 	<div class="cont">	            	
-        	<cms:include page="TS_Deportes_Starmedia_Ranking.jsp" />        		
+        	<cms:include page="TS_Blogs_Ranking.jsp" />        		
      	</div>
-	<!-- WIDGET DEPORTES 
-	<div class="cont">	            	
-        	<cms:include page="TS_Common_Widget_Deportes.jsp" />        		
-     	</div>
-     	-->
+	
      	<%
      	   }	
      	%>
@@ -68,27 +31,7 @@
      	</div>
      	<% }  
      	%>
-	<%--  <div class="row clear cont"> 
-		<div class="col ">
-			<div class="banners" style="float:left;">
-				<cms:include page="TS_Common_Banners.jsp">
-					<cms:param name="template"><%=template %></cms:param>
-					<cms:param name="key">Show-Promotion-383x214</cms:param>
-		  		</cms:include>
-			</div>      
-		</div>             
-	</div>
 	
-	<div class="row clear cont"> 
-		<div class="col ">
-			<div class="banners" style="float:left;">
-				<cms:include page="TS_Common_Banners.jsp">
-					<cms:param name="template"><%=template %></cms:param>
-					<cms:param name="key">Show-Promotion-380x400-a</cms:param>
-		  		</cms:include>
-			</div>      
-		</div>             
-	</div> --%>
 
 
 	<div class="row clear"> 
@@ -99,14 +42,7 @@
 		</div>             
 	</div>     
 	
-	<%--<div class="row clear"> 
-		<div class="banners cont">
-			<cms:include page="TS_Common_Banners.jsp">
-				<cms:param name="template"><%=template %></cms:param>
-				<cms:param name="key">Advert-300x250-b</cms:param>
-			</cms:include>
-		</div>              
-	</div> --%>
+	
 	
 	<div class="row clear"> 
 		<div class="col">

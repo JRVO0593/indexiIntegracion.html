@@ -1,0 +1,8 @@
+
+jvelasquez@lcedeno-desktop:~/JOSE VELASQUEZ/TEMPLATE INTEGRACION$ git status
+jvelasquez@lcedeno-desktop:~/JOSE VELASQUEZ/TEMPLATE INTEGRACION$ git add .
+jvelasquez@lcedeno-desktop:~/JOSE VELASQUEZ/TEMPLATE INTEGRACION$ git status
+jvelasquez@lcedeno-desktop:~/JOSE VELASQUEZ/TEMPLATE INTEGRACION$ git commit -m "cambio 09 11"
+jvelasquez@lcedeno-desktop:~/JOSE VELASQUEZ/TEMPLATE INTEGRACION$ git push 
+jvelasquez@lcedeno-desktop:~/JOSE VELASQUEZ/TEMPLATE INTEGRACION$ gitk
+

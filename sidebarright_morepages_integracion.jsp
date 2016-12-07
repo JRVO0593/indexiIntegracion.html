@@ -32,7 +32,6 @@
 	<nt:page-builder-init/>
 				<!--FIN LLAMADO AL HEAD (METAS)-->
 				
-	<title>teleSUR JRVO</title>
 	
 
 	<!-- Bootstrap -->
@@ -168,7 +167,7 @@
 				* Orden de Busqueda
 				*/
 				
-				if ( display_search.equals("LAST") || display_search.equals("null") || display_search.equals("") ) display_search = "priority asc, user-modification-date desc";
+				if ( display_search.equals("LAST") || display_search.equals("null") || display_search.equals("") ) display_search = "priority desc, creation-date";
 				if ( display_search.equals("COME") ) display_search = "most-read";
 				if ( display_search.equals("COMP") ) display_search = "most-positive-evaluations";
 				
@@ -342,7 +341,7 @@
 				<div class="row clear"> 
 					<div class="col-six"> 
 						<cms:include page="../elements/TS_Common_RightColumn.jsp" >
-					 		<cms:param name="template">Blog</cms:param>
+					 		<cms:param name="template">Agenda</cms:param>
 					 	</cms:include>
 				 	</div><!-- fin colmna izq col-six -->
 				</div>

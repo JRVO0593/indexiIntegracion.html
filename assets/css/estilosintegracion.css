@@ -1,4 +1,37 @@
 
+/*RELACIONADOS*/
+
+.relacionados{
+  font-size: 3rem;
+  color: #333333;
+  /*max-width:150px;
+  max-height:25px;*/
+  margin-left:15px;
+  font-family: "Open sans";
+  font-weight: 400;
+  margin-bottom: 10px;
+      margin-top: 20px;
+}
+
+.relacionados2 > li > a {
+      color:#bd1550;
+      max-width:80px;
+      height:80px;
+      font-size:10pt;   
+}
+.relacionados2 > li {
+}
+.relacionados2 ul li {
+  margin-left:-10px;
+}
+
+/*//FIN RELACIONADOS*/
+
+
+
+
+
+
 
 <%@ include file="TS_Common_Libraries.jsp" %>
 html {
@@ -28,109 +61,18 @@ body !important;{
 background: #0080b7 none repeat scroll 0 0;
     border: medium double;
     color: white;
-}
+}/*
 .row{
   color: #999;
+}*/
+.row .clear{
+margin:10px;
+background:no-repeat;
+
 }
-
-/*********************************************************************
-
-
-                            SECCION BLOGS
-
-
-
-*********************************************************************/
-
-.ocms_de_bt {
-  position:absolute !important;
+.navbar-default .navbar-nav > li > a {
+color:#777 !important;
 }
-.blogtit .her {
-  font-size: 2.5rem;
-  font-family:"sans-serif";
-  color:#333333;
-}
-.contblogint p{
-  color:#999;
-  margin:0 0 10px;
-}
-.topblogright .her {
-  font-size: 1.5rem;
-  font-family:"sans-serif";
-  color:#bd1550;
-}
-.topblogleft{
-  color:#999; 
-
-} 
-.topblogright{
-  
-}
-.blogrs a{
-  font-size: 1.5rem;
-  font-family:"sans-serif";
-  color:#bd1550;
-  /*margin-left:280;*/
-}
-.addthisjrvo{
-  display:inline-block;
-  max-width:50 !important;
-  max-height:50 !important;
-  white-space:nowrap;
-}
-
-.addthis_toolbox a{
-  background:#999;
-  display:inline-block;
-  max-width:50 !important;
-  max-height:50 !important;
-}
-
-.center-block {
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-}
-
-.readblog{
-  height:110px;
-  margin-left:305px;
-}
-a .readblog {
-  height:110px;
-  margin-left:295px;
-}
-/*********************************************************************
-
-
-                            SECCION BLOGS-RIGHT COLUMN
-
-
-
-*********************************************************************/
-.tabnew li a {
-   color:#bd1550 !important;
-   background:#999;
-}
-.tabnew{
-  display:inline-block;
-  max-width:100px;
-  max-height:100px;
-}
-
-.contimgsli a {
-  color:#999;
-}
-.titslidenew a{
-  color:#999;
-}
-autslidenew a{
-  color:#bd1550;
-}
-
-
-
-
 
 /*********************************************************************
 
@@ -215,10 +157,6 @@ footer .legal span{color:#4d537d;display:none}
   font-family: "Open sans",Helvetica,Arial,sans-serif;
   color: #666666;
   
-}
-.descripcionnd h4{
-  
-  /*color: #999;*/
 }
 
 .importante{
@@ -399,7 +337,403 @@ article hgroup {
 
 }
 
+/*********************************************************************
 
+
+                            SECCION BLOGS
+
+
+
+*********************************************************************/
+
+.ocms_de_bt {
+  position:absolute !important;
+}
+.blogtit .her {
+  font-size: 2.5rem;
+  font-family:"sans-serif";
+  color:#333333;
+}
+.contblogint p{
+  color:#999;
+  margin:0 0 10px;
+}
+.topblogright .her {
+  font-size: 1.5rem;
+  font-family:"sans-serif";
+  color:#bd1550;
+}
+.topblogleft{
+  color:#999; 
+
+} 
+.topblogright{
+  
+}
+.blogrs a{
+  font-size: 1.5rem;
+  font-family:"sans-serif";
+  color:#bd1550;
+  /*margin-left:280;*/
+}
+.addthisjrvo{
+  display:inline-block;
+  max-width:50 !important;
+  max-height:50 !important;
+  white-space:nowrap;
+}
+
+.addthis_toolbox a{
+  background:#999;
+  display:inline-block;
+  max-width:50 !important;
+  max-height:50 !important;
+}
+
+.center-block {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.readblog{
+  height:110px;
+  margin-left:305px;
+}
+a .readblog {
+  height:110px;
+  margin-left:295px;
+}
+/*********************************************************************
+
+
+                            SECCION BLOGS-RIGHT COLUMN
+
+
+
+*********************************************************************/
+.tabnew li a {
+   color:#bd1550 !important;
+   background:#999;
+}
+
+.tabnew{
+  display:inline-block;
+  max-width:100px;
+  max-height:100px;
+}
+
+.contimgsli a {
+  color:#999;
+}
+
+.titslidenew a{
+  color:#999;
+}
+autslidenew a{
+  color:#bd1550;
+}
+.gblogrs .num{
+  
+  max-width:30px;
+  max-height:30px;
+  color: #ffffff;
+  font-family: "Arimo",sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 11px;
+  position: absolute;
+}
+.autslidenew .her {
+  color:#bd1550;
+}
+.headBlue{
+  margin-left:40px;
+  padding:5px;
+  font-size:1.5em;
+}
+.min80 img{
+  margin-left:10px;
+  width:200px;
+  height:100px;
+}
+.overflow{
+  max-width:200px;
+  max-height:auto;
+  margin-left:20px;
+}
+.overflow .ocms_de_bt{
+  margin-top:-150px;
+  margin-left:7px;
+  position:absolute !important;
+}
+.wpXSmallImg .overflow h3{
+  
+  max-width:200px;
+  max-height:auto;
+  margin-left:7px;
+}
+.overflow a{
+  color:#bd1550;
+}
+.overflow .autor{
+  margin-left:50px;
+}
+
+/*********************************************************************
+
+
+                            INTERNO DE NOTA
+
+
+
+*********************************************************************/
+/*
+.news-header .title{*/
+  /*position:relative;*/
+  /*margin-left:180px;*//*
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2.25rem;
+  font-weight: 300;
+  font-family: "Open sans" , Helvetica, Arial, sans-serif;
+}
+
+.news-header .subtitle{
+  text-align: center;
+  color:#bd1550;
+}
+*/
+
+
+/*AUTOR DE LA NOTICIA*/
+.itacaput a{
+  /*margin-left:30px;*/
+  color:#bd1550;
+  
+
+}
+/*SUBTITULO DE LA NOTA*/
+.title-container .subtitle{
+  color:#fff;
+  font-weight:400;
+  /*position:relative;*/
+  /*background: transparent none repeat scroll 0 0;*/
+        margin-top: 350px;
+        outline: 0 none;
+        padding: 15px 10px;
+        text-decoration: none;
+        position:absolute;
+        font-family:"Open sans",sans-serif;
+        background:transparent none repeat scroll 0 0;
+        
+  
+ }
+        
+.title-container .title{
+  color:#333333;
+  font-weight:300;
+        padding: 0;
+        text-decoration: none;
+        font-size:3rem;
+        letter-spacing: 1px;
+         text-align: center;
+        text-transform: uppercase;
+        font-family:"Open sans",Helvetica,Arial,sans-serif;
+        width:690px;
+        height:auto;
+        margin: 20px 0 20px 0;
+        overflow: hidden;
+}
+  
+}
+/*CONTENEDOR DE TITULO Y SUBTITULO*/
+.title-container{
+  font-size: 15px;
+  padding: 15px 20px;
+  width: calc(100% - 40px);
+  position:relative;
+  bottom: 0;
+  color: #black;
+  left: 0;
+  line-height: 18px;
+  padding: 12px 15px;
+  z-index: 9;
+}
+
+/*
+.news-header .metadata-container{
+         margin-left:30px;
+         position:absolute;
+         max-width:690px;
+         max-height:399px;    
+}
+
+.news-header .metadata-container a{
+  color:#bd1550;
+
+}*/
+/*
+.date-author-container{
+  color:#bd1550;
+  background-color:#a5a5a5;
+}
+*/
+.image-container img{
+  width:690px;
+  height:400px;
+  
+}
+.entry-header h1 a{
+  color:white;
+}
+
+.category-container{
+  background:#a5a5a5;
+}
+
+
+
+.image-container{
+  
+  width:690px;
+  height:424px;
+}
+
+/*twitter*/
+.op-social #twitter-widget-0{
+  margin-left:100px;
+}
+.op-social #twitter-widget-1{
+  margin-left:100px;
+}
+/*twitter*/
+
+/*TAGS*/
+.tagBarNews > a{
+  
+  color:#bd1550;
+  font-size:10px; 
+  margin-left:20px;
+  border:double;
+  border-color:black;
+  padding-top:5px;
+}
+
+.tagBarNews > h4 {
+  margin-left:20px;
+  font-family: "Open sans";
+    font-weight: 400px;
+      color: #333333;
+      max-width:50px;
+  max-height:30px;
+  font-size: 3rem;
+}
+
+.tagBarNews .btn{
+  padding:5px!important;
+}
+
+.btn:hover {
+    border-radius: 4px;
+    transition: all 0.5s ease 0s;
+}
+/*TAGS*/
+
+
+
+/*COMENTARIOS*/
+.titcomment #comentarios{
+  font-size: 3rem;
+  font-family:"Open sans"; 
+  font-weight: 400px;
+  color:#333333;
+  line-height: 1.1;
+  width:690;
+  margin: 0 0 10 35;
+  
+}
+.titlecom{
+  width:120px;
+
+}
+.gblogrs{
+  width:40px;
+}
+.comsup .titcomment .titlecom {
+  float: left;
+  margin-left:30px;
+}
+.gblogrs .num {
+    color: #333333 !important;
+    font-family: "Open sans" !important;
+    font-size: 3rem !important;
+    font-weight: 400 !important;
+    max-height: 30px;
+    max-width: 30px;
+    padding: 1px 11px;
+    position: absolute;
+    line-height: 1.1 !important;
+}
+/*CUADRO DE TEXTO INTERNO*/
+.comtxt {
+    border: 1px solid #cccccc;
+    color: #a9a9a9;
+    float: left;
+    font-family: "Arimo",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    min-height: 200px;
+    padding: 10px;
+    width: 96%;
+}
+
+/*BOTON ENVIAR INTERNO*/
+.btncomact {
+    background:transparent none repeat scroll 0 0 !important; 
+    border: 1px solid #333;
+    color: #333333;
+    float: right;
+    font-family: "Arimo",sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 4px;
+    padding: 10px 13px;
+    position: relative;
+    text-align: center;
+}
+.prepostcom{
+  padding:15px 0;
+}
+
+.titlecoment h3 {
+  width:690px;
+  height:40px;
+  font-size: 3rem;
+  font-family:"Open sans"; 
+  font-weight: 400px;
+  color:#333333;
+  line-height: 1.1;
+}
+
+.comentarios{
+  margin-top:100px;
+  padding:10px;
+}
+
+
+/*FIN COMENTARIOS*/
+
+
+/*********************************************************************
+
+
+                          FIN  INTERNO DE NOTA
+
+
+
+*********************************************************************/
 
 
 /*********************************************************************
@@ -1158,7 +1492,7 @@ img {
 .entry-header .entry-meta {
   text-align: center;
   font-family: Georgia, serif;
-  font-size: 18px;
+  font-size: 18px !important;
   font-size: 1.125rem;
   font-style: italic;
   font-weight: normal;

@@ -55,6 +55,10 @@
                                 <c:set var="imageDescription" scope="page"><nt:image-path /></c:set>
                             </nt:conditional-include>
 
+
+
+
+
                             <a href="<nt:link/>" title="${imageDescription}">   
                                 <meta itemprop="description" content='${imageDescription}'>
                                 <img itemprop="contentURL" src="<nt:image-path width='1200' height='300' scaletype='2'/>" title="${imageDescription}" alt="${imageDescription}" />
@@ -62,6 +66,8 @@
                         </nt:preview-image>         
                     </div>
                 </nt:conditional-include>
+               
+                
   <!--previsualizacion de videos -iframe - embedded- video flash-->
                 <nt:conditional-include oncondition="${news.homePreview == 'videoYouTube'}">
                     <nt:video-youtube>

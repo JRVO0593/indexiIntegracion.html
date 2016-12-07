@@ -1,41 +1,50 @@
-agregar archivo al git: actualizado el 11 11 16
+agregar archivo al git: actualizado el 07 12 16
 leyenda actualizado=( * )
 no actualizado=(no actualizado)
-								templates:
+					templates:
 
-1)indexIntegracion.jsp * 				
-2)blog_integracion.jsp *
-3)about_integracion.jsp *
-4)sidebarleft_morepages_integracion.jsp  *
-5)sidebarright_morepages_integracion.jsp(blogs) *
-6)single_morepages_integracion.jsp  *
-
-
-								elements:
-
-1)I_TS_Videosjrvo.jsp *
-2)TS_Common_Bloksjrvo.jsp *
-3)TS_Common_BoxArticlejrvo.jsp *
-4)TS_Common_Destacada1jrvo.jsp *
-5)TS_Common_Footerjrvo.jsp * 
-6)TS_Common_headjrvo.jsp *
-7)TS_Common_Menujrvo.jsp *
-8)TS_Common_Deportesjrvo.jsp *
-9)TS_Home_Destacadas_Secundarias_Portada1jrvo.jsp *
-10)TS_Login_Headerjrvo.jsp *
-11)TS_Common_AddThisjrvo.jsp *			
-12)TS_Common_RightColumnjrvo.jsp *		
+1)indexIntegracion.jsp 					*				
+2)blog_integracion.jsp 					*
+3)about_integracion.jsp 				*
+4)sidebarleft_morepages_integracion.jsp  		*
+5)sidebarright_morepages_integracion.jsp(blogs)		*
+6)single_morepages_integracion.jsp  			*			
 	
 
-							resources: css -less -js
 
-1)estilosintegracion.css*			
-2)lessshat_integracion.less*
-3)mixins2_integracion.less*
-4)mixins_integracion.less*
-5)navbar_integracion.less*
-6)styles_integracion.css*
-7)html5shiv_integracion.js*
-8)template_jquery_integracion.js*
-9)videos-fn-2jrvo.js *
+
+
+					elements:
+
+1)I_TS_Videosjrvo.jsp 					*
+2)TS_Common_Bloksjrvo.jsp 				*
+3)TS_Common_BoxArticlejrvo.jsp 				*
+4)TS_Common_Destacada1jrvo.jsp 				*
+5)TS_Common_Footerjrvo.jsp 				*
+6)TS_Common_headjrvo.jsp 				*
+7)TS_Common_Menujrvo.jsp 				*
+8)TS_Common_Deportesjrvo.jsp 				*
+9)TS_Home_Destacadas_Secundarias_Portada1jrvo.jsp 	*
+10)TS_Login_Headerjrvo.jsp 				*
+11)TS_Common_AddThisjrvo.jsp 				*			
+12)TS_Common_RightColumnjrvo.jsp 			*	
+13)I_TS_NewsViewjrvo.jsp 				*		
+14)TS_Artilcle.jsp					*
+15)TS_Commentsjrvo.jsp  				*
+		
+				
+
+
+
+				resources: css -less -js
+
+1)estilosintegracion.css		     		*
+2)lessshat_integracion.less				*
+3)mixins2_integracion.less				*
+4)mixins_integracion.less				*
+5)navbar_integracion.less				*
+6)styles_integracion.css				*
+7)html5shiv_integracion.js				*
+8)template_jquery_integracion.js			*
+9)videos-fn-2jrvo.js 					*
 
