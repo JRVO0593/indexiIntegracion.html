@@ -167,7 +167,7 @@
 				* Orden de Busqueda
 				*/
 				
-				if ( display_search.equals("LAST") || display_search.equals("null") || display_search.equals("") ) display_search = "priority desc, creation-date";
+				if ( display_search.equals("LAST") || display_search.equals("null") || display_search.equals("") ) display_search = "priority asc, creation-date";
 				if ( display_search.equals("COME") ) display_search = "most-read";
 				if ( display_search.equals("COMP") ) display_search = "most-positive-evaluations";
 				

@@ -1,4 +1,4 @@
- <%@ taglib prefix="nt" uri="http://www.tfsla.com/taglib/tfsNewsTags" %>
+<%@ taglib prefix="nt" uri="http://www.tfsla.com/taglib/tfsNewsTags" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.util.Locale"%>
@@ -30,13 +30,10 @@
 	</cms:include>
 	<nt:page-builder-init/>
 				<!--FIN LLAMADO AL HEAD (METAS)-->
-				
-	
-
-	<!-- Bootstrap -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet"/>
 	<!-- Icon font -->
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
 	<!-- Fonts -->
 	<!-- Custom styles -->
 	<link href="/system/modules/com.tfsla.diario.telesur/resources/css/estilosintegracion.css" rel="stylesheet" type="text/css" />
@@ -113,7 +110,7 @@
 <!--MENU DEL HEADER-->
 <div class="divmenu">
 	<cms:include page="/system/modules/com.tfsla.diario.telesur/elements/TS_Common_Menujrvo.jsp" >
-		<cms:param name="pageSeccion"><%=pageSeccion%></cms:param>        
+		<cms:param name="pageSeccion"><%=pageSeccion%></cms:param> 
 	</cms:include> 
 </div>	
 <!--FIN MENU DEL HEADER-->
@@ -147,9 +144,25 @@
 										    <%@page import="java.text.SimpleDateFormat"%>
 										    <%@page import="java.text.DateFormat"%>
 										    <%@page import="java.util.Calendar"%>
-										
-										
-										        <!--Autor-->
+																				
+													
+																<!--TITULO DE NOTA-->
+														<div class="title-container">
+										                        		<div class="title">
+										                         			 <nt:title value="detail"/>
+										                        		</div>
+										                        		<div class="subtitle">
+										                            			<nt:conditional-include oncondition="${news.hideCopete == 'false'}">
+										                                			<nt:sub-title/>
+										                           			 </nt:conditional-include>
+										                        		</div>
+										                        		
+										               			 </div>  <!--/title-container-->  
+																 <!--/TITULO DE NOTA--> 
+														
+															<!--Autor-->
+													<c:set var="idsection"><nt:section-name/></c:set>		
+													<c:if test="${idsection == 'opinion'}">
 										                                <nt:conditional-include oncondition="${news.hideAuthor == 'false'}">
 										                                        <nt:authors>
 										                                            <c:set var="internalUser" scope="page"><nt:author-internaluser/></c:set>
@@ -166,324 +179,47 @@
 										                                            </c:if>
 										                                        </nt:authors>
 										                                </nt:conditional-include>
-										                                
-										        <!--/Autor-->
-										        
-										<!--Fecha modificacion-->
+										                           </c:if>     
+														        <!--/Autor-->
+														        
+														       	 <!--LLAMADO A ELEMENTO MULTIMEDIA-->
+										        		<div class="vworldtop cont">
+														<div class="bloque-multimedia">
+										                                    <nt:conditional-include oncondition="${news.detailPreview != 'iframe'}">
+										                                        <cms:include page="TS_Article_Multimediajrvo.jsp" />
+										                                    </nt:conditional-include>
+										                                    <nt:conditional-include oncondition="${news.detailPreview == 'iframe'}" >
+										                                        <nt:iframe/>
+										                                    </nt:conditional-include>
+										                                 </div>	
+										                         			
+																<!--Fecha modificacion-->
+														<div class="capworldtop">
+												                        <div class="caplw">
+												                           <nt:conditional-include oncondition="${news.hideTime == 'false'}">
+												                                    <c:set var="horaNotaSistema" scope="page"><fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss" value="${news.lastModificationDate}" /></c:set>
+												                                    <jsp:useBean id="horaNotaSistema" type="java.lang.String" />
+												                                        <fmt:setLocale value="es_ES"/>Publicado
+												                                        <fmt:formatDate pattern="d MMMM yyyy" value="${news.lastModificationDate}" />
+												                                        <%  try{ %> <%=CalcularDias(horaNotaSistema)%> <% } catch (Exception e){ %>   <% } %>
+												                                        <!--<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss" value="${news.lastModificationDate}" />-->
+												                           </nt:conditional-include>
+												                        </div>	   
+														      		<!--/Fecha modificacion-->
+																<!--ADD THIS DE NOTICIA-->
+															<div class="compartirblogs center-block">
+																<cms:include page="../elements/TS_Common_AddThisjrvo.jsp" >
+																	<cms:param name="link"><nt:link/></cms:param> 
+																	<cms:param name="titulo"><nt:title value="section"/></cms:param>       
+																</cms:include>
+															</div>
+														</div><!--capworldtop-->
+													</div><!--vwotldtop--> 
+																<!--FIN ADD THIS DE NOTICIA-->
+																		
 										
-										                           <nt:conditional-include oncondition="${news.hideTime == 'false'}">
-										                                    <c:set var="horaNotaSistema" scope="page"><fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss" value="${news.lastModificationDate}" /></c:set>
-										                                    <jsp:useBean id="horaNotaSistema" type="java.lang.String" />
-										                                                                                               <fmt:setLocale value="es_ES"/>
-										                                        <fmt:formatDate pattern="d MMMM yyyy" value="${news.lastModificationDate}" />
-										                                        <%  try{ %> <%=CalcularDias(horaNotaSistema)%> <% } catch (Exception e){ %>   <% } %>
-										                                        <!--<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss" value="${news.lastModificationDate}" />-->
-										                           </nt:conditional-include>
-										                           -
-									      <!--/Fecha modificacion-->	
-									      				
-										<!--TITULO DE NOTA-->
-												<div class="title-container">
-										                        <div class="subtitle">
-										                            <nt:conditional-include oncondition="${news.hideCopete == 'false'}">
-										                                <nt:sub-title/>
-										                            </nt:conditional-include>
-										                        </div>
-										                        <div class="title">
-										                          <nt:title value="detail"/>
-										                        </div>
-										                </div>  <!--/title-container-->  
-										 <!--/TITULO DE NOTA-->  
-										 
-									<!--ADD THIS DE NOTICIA--><div class="compartirblogs center-block">
-													<cms:include page="../elements/TS_Common_AddThisjrvo.jsp" >
-														<cms:param name="link"><nt:link/></cms:param> 
-														<cms:param name="titulo"><nt:title value="section"/></cms:param>       
-													</cms:include>
-												</div>
-									<!--FIN ADD THIS DE NOTICIA-->		
-										
-									                    <div class="image-container">
-										<!-- INICIO MULTIMEDIA -->       
-										                      <%
-										                            String width = "930" ;
-										                            String height = "310" ;
-										                            int contadorVideo = 0;
-										                        %>
-													 
-										                        <nt:conditional-include oncondition="${news.detailPreview == 'imagen'}">
-										                        
-										                            <nt:conditional-include oncondition="${news.imagescount > 0}">
-										                                <div id="fotos">
-										                                    <ul class="slides">
-										                                        <nt:image-gallery>
-										                                            <li itemscope class=".itemscope" itemtype="http://schema.org/ImageObject">
-										                                                <c:set var="imageDescription" scope="page"><nt:image-description/></c:set>
-										                                                <c:set var="imageSource" scope="page"><nt:image-source/></c:set>
-										                                                <nt:conditional-include oncondition="${(imageDescription != '') && (imageSource != '')}">
-										                                                    <img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title="<nt:image-description/> | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
-										                                                </nt:conditional-include>
-										                                                <nt:conditional-include oncondition="${(imageDescription != '') && (imageSource == '')}">
-										                                                    <img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title='<nt:image-description/>' width="<%=width %>" height="<%=height %>" />
-										                                                </nt:conditional-include>
-										                                                <nt:conditional-include oncondition="${(imageDescription == '') && (imageSource != '')}">
-										                                                    <meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
-										                                                    <img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title="${news.titles[news.titleDetailNum]} | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
-										                                                </nt:conditional-include>
-										                                                <nt:conditional-include oncondition="${(imageDescription == '') && (imageSource == '')}">
-										                                                    <meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
-										                                                    <img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title='${news.titles[news.titleDetailNum]}' width="<%=width %>" height="<%=height %>" />
-										                                                </nt:conditional-include>
-										                                            </li>
-										                                        </nt:image-gallery>
-										                                    </ul>
-										                                </div>
-										                            </nt:conditional-include>
-										                          
-										                          
-										                            <nt:conditional-include oncondition="${news.videoscount > 0}">
-										                                <div id="videos">
-										                                    <ul class="slides">
-										                                        <c:set var="videopath" value="" />
-										                                        <nt:video-flash>
-										                                            <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                <c:set var="videopath">
-										                                                    <nt:video-path/>,<nt:video-thumbnail/>,<nt:video-title/>
-										                                                </c:set>
-										                                                <meta itemprop="name" content='<nt:video-title/>' />
-										                                                <meta itemprop="publisher" content="<nt:video-publisher/>" />
-										                                                <meta itemprop="thumbnailUrl" content="<nt:video-thumbnail/>" />
-										                                                <meta itemprop="contentURL" content="<nt:video-path/>" />
-										                                                <meta itemprop="keywords" content="<nt:video-tags/>" />
-										                                                <meta itemprop="duration" content="<nt:video-duration/>" />
-										                                                <meta itemprop="bitrate" content="<nt:video-bitrate/>" />
-										                                                <cms:include page="TS_Common_VideoFlash.jsp">
-										                                                    <cms:param name="video">${videopath}</cms:param>
-										                                                    <cms:param name="imagen"><nt:video-thumbnail/></cms:param>
-										                                                    <cms:param name="titulo"><nt:video-title/></cms:param>
-										                                                    <cms:param name="width" value="100%"/>
-										                                                    <cms:param name="height" value="<%=height %>"/>
-										                                                </cms:include>
-										                                            </li>
-										                                        </nt:video-flash>
-										
-										                                        <nt:video-youtube>
-										                                            <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                <meta itemprop="name" content='<nt:video-title/>' />
-										                                                <meta itemprop="publisher" content="<nt:video-publisher/>" />
-										                                                <meta itemprop="thumbnailUrl" content="//i1.ytimg.com/vi/<nt:video-youtubeid/>/hqdefault.jpg" />
-										                                                <meta itemprop="contentURL" content="http://www.youtube.com/v/<nt:video-youtubeid/>" />
-										                                                <iframe id="player<%=contadorVideo%>" class="iframeYT" width="100%" height="<%=height %>" src="//www.youtube.com/embed/<nt:video-youtubeid/>?enablejsapi=1&version=3&playerapiid=player<%=contadorVideo%>" frameborder="0" allowfullscreen> </iframe>
-										                                                <% contadorVideo++; %>
-										                                            </li>
-										                                        </nt:video-youtube>
-										
-										                                        <nt:video-embedded>
-										                                            <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                <meta itemprop="name" content='<nt:video-title/>' />
-										                                                <nt:video-code />
-										                                            </li>
-										                                        </nt:video-embedded>
-										
-										                                    </ul>
-										                                </div>
-										                            </nt:conditional-include>
-										                            
-										                        </nt:conditional-include>
-													 <nt:conditional-include oncondition="${news.detailPreview != 'imagen'}">
-										                            <nt:conditional-include oncondition="${news.videoscount > 0}">
-										                                <div id="videos">
-										                                    <ul class="slides">
-										                                        <nt:conditional-include oncondition="${news.detailPreview == 'videoFlash'}">
-										                                            <c:set var="videopath" value="" />
-										                                            <nt:video-flash>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <c:set var="videopath">
-										                                                        <nt:video-path/>,<nt:video-thumbnail/>,<nt:video-title/>
-										                                                    </c:set>
-										                                                    <meta itemprop="name" content='<nt:video-title/>' />
-										                                                    <meta itemprop="publisher" content="<nt:video-publisher/>" />
-										                                                    <meta itemprop="thumbnailUrl" content="<nt:video-thumbnail/>" />
-										                                                    <meta itemprop="contentURL" content="<nt:video-path/>" />
-										                                                    <meta itemprop="keywords" content="<nt:video-tags/>" />
-										                                                    <meta itemprop="duration" content="<nt:video-duration/>" />
-										                                                    <meta itemprop="bitrate" content="<nt:video-bitrate/>" />
-										                                                    <cms:include page="TS_Common_VideoFlash.jsp">
-										                                                        <cms:param name="video">${videopath}</cms:param>
-										                                                        <cms:param name="imagen"><nt:video-thumbnail/></cms:param>
-										                                                        <cms:param name="titulo"><nt:video-title/></cms:param>
-										                                                        <cms:param name="width" value="50%"/>
-										                                                        <cms:param name="height" value="<%=height %>"/>
-										                                                    </cms:include>
-										                                                </li>
-										                                            </nt:video-flash>
-										
-										                                            <nt:video-youtube>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <meta itemprop="name" content='<nt:video-title/>' />
-										                                                    <meta itemprop="publisher" content="<nt:video-publisher/>" />
-										                                                    <meta itemprop="thumbnailUrl" content="//i1.ytimg.com/vi/<nt:video-youtubeid/>/hqdefault.jpg" />
-										                                                    <meta itemprop="contentURL" content="http://www.youtube.com/v/<nt:video-youtubeid/>" />
-										                                                    <iframe id="player<%=contadorVideo%>" class="iframeYT" width="50%" height="<%=height %>" src="//www.youtube.com/embed/<nt:video-youtubeid/>?enablejsapi=1&version=3&playerapiid=player<%=contadorVideo%>" frameborder="0" allowfullscreen> </iframe>
-										                                                    <% contadorVideo++; %>
-										                                                </li>
-										                                            </nt:video-youtube>
-										
-										                                            <nt:video-embedded>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <meta itemprop="name" content='<nt:video-title/>' />
-										                                                    <nt:video-code />
-										                                                </li>
-										                                            </nt:video-embedded>
-										                                        </nt:conditional-include>
-										
-										                                        <nt:conditional-include oncondition="${news.detailPreview == 'videoYouTube'}">
-										                                            <nt:video-youtube>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <meta itemprop="name" content='<nt:video-title/>' />
-										                                                    <meta itemprop="publisher" content="<nt:video-publisher/>" />
-										                                                    <meta itemprop="thumbnailUrl" content="//i1.ytimg.com/vi/<nt:video-youtubeid/>/hqdefault.jpg" />
-										                                                    <meta itemprop="contentURL" content="http://www.youtube.com/v/<nt:video-youtubeid/>" />
-										                                                    <iframe id="player<%=contadorVideo%>" class="iframeYT" width="200%" height="<%=height %>" src="//www.youtube.com/embed/<nt:video-youtubeid/>?enablejsapi=1&version=3&playerapiid=player<%=contadorVideo%>" frameborder="0" allowfullscreen> </iframe>
-										                                                    <% contadorVideo++; %>
-										                                                </li>
-										                                            </nt:video-youtube>
-										
-										                                            <c:set var="videopath" value="" />
-										                                            <nt:video-flash>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <c:set var="videopath">
-										                                                        <nt:video-path/>,<nt:video-thumbnail/>,<nt:video-title/>
-										                                                    </c:set>
-										                                                    <meta itemprop="name" content='<nt:video-title/>' />
-										                                                    <meta itemprop="publisher" content="<nt:video-publisher/>" />
-										                                                    <meta itemprop="thumbnailUrl" content="<nt:video-thumbnail/>" />
-										                                                    <meta itemprop="contentURL" content="<nt:video-path/>" />
-										                                                    <meta itemprop="keywords" content="<nt:video-tags/>" />
-										                                                    <meta itemprop="duration" content="<nt:video-duration/>" />
-										                                                    <meta itemprop="bitrate" content="<nt:video-bitrate/>" />
-										                                                    <cms:include page="TS_Common_VideoFlash.jsp">
-										                                                        <cms:param name="video">${videopath}</cms:param>
-										                                                        <cms:param name="imagen"><nt:video-thumbnail/></cms:param>
-										                                                        <cms:param name="titulo"><nt:video-title/></cms:param>
-										                                                        <cms:param name="width" value="100%"/>
-										                                                        <cms:param name="height" value="<%=height %>"/>
-										                                                    </cms:include>
-										                                                </li>
-										                                            </nt:video-flash>
-										
-										                                            <nt:video-embedded>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <meta itemprop="name" content='<nt:video-title/>' />
-										                                                    <nt:video-code />
-										                                                </li>
-										                                            </nt:video-embedded>
-										                                        </nt:conditional-include>
-										
-										                                        <nt:conditional-include oncondition="${news.detailPreview == 'videoEmbedded'}">
-										                                            <nt:video-embedded>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <meta itemprop="name" content="<nt:video-title/>" />
-										                                                    <nt:video-code />
-										                                                </li>
-										                                            </nt:video-embedded>
-										
-										                                            <c:set var="videopath" value="" />
-										                                            <nt:video-flash>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <c:set var="videopath"><nt:video-path/>,<nt:video-thumbnail/>,<nt:video-title/></c:set>
-										                                                    <meta itemprop="name" content='<nt:video-title/>' />
-										                                                    <meta itemprop="publisher" content="<nt:video-publisher/>" />
-										                                                <meta itemprop="thumbnailUrl" content="<nt:video-thumbnail/>" />
-										                                                <meta itemprop="contentURL" content="<nt:video-path/>" />
-										                                                <meta itemprop="keywords" content="<nt:video-tags/>" />
-										                                                <meta itemprop="duration" content="<nt:video-duration/>" />
-										                                                <meta itemprop="bitrate" content="<nt:video-bitrate/>" />
-										                                                <cms:include page="TS_Common_VideoFlash.jsp">
-										                                                    <cms:param name="video">${videopath}</cms:param>
-										                                                    <cms:param name="imagen"><nt:video-thumbnail/></cms:param>
-										                                                    <cms:param name="titulo"><nt:video-title/></cms:param>
-										                                                    <cms:param name="width" value="100%"/>
-										                                                    <cms:param name="height" value="<%=height %>"/>
-										                                                </cms:include>
-										                                                </li>
-										                                            </nt:video-flash>
-										
-										                                            <nt:video-youtube>
-										                                                <li itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-										                                                    <meta itemprop="name" content='<nt:video-title/>' />
-										                                                    <meta itemprop="publisher" content="<nt:video-publisher/>" />
-										                                                    <meta itemprop="thumbnailUrl" content="//i1.ytimg.com/vi/<nt:video-youtubeid/>/hqdefault.jpg" />
-										                                                    <meta itemprop="contentURL" content="http://www.youtube.com/v/<nt:video-youtubeid/>" />
-										                                                    <iframe id="player<%=contadorVideo%>" class="iframeYT" width="200%" height="<%=height %>" src="//www.youtube.com/embed/<nt:video-youtubeid/>?enablejsapi=1&version=3&playerapiid=player<%=contadorVideo%>" frameborder="0" allowfullscreen> </iframe>
-										                                                    <% contadorVideo++; %>
-										                                                </li>
-										                                            </nt:video-youtube>
-										                                        </nt:conditional-include>
-										                                    </ul>
-										                                </div>
-										                            </nt:conditional-include>
-										                            <nt:conditional-include oncondition="${news.imagescount > 0}">
-										                                <div id="fotos">
-										                                    <ul class="slides">
-										                                        <nt:image-gallery>
-										                                            <li itemscope class=".itemscope" itemtype="http://schema.org/ImageObject">
-										                                                <c:set var="imageDescription" scope="page"><nt:image-description/></c:set>
-										                                                                <c:set var="imageSource" scope="page"><nt:image-source/></c:set>
-										                                                <nt:conditional-include oncondition="${(imageDescription != '') && (imageSource != '')}">
-										                                                    <img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title="<nt:image-description/> | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
-										                                                    <div class="caption" content='<nt:image-description/>'><h2><nt:image-description/> | Foto: <nt:image-source/></h2></div>
-										                                                </nt:conditional-include>
-										                                                <nt:conditional-include oncondition="${(imageDescription != '') && (imageSource == '')}">
-										                                                    <img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title='<nt:image-description/>' width="<%=width %>" height="<%=height %>" />
-										                                                    <div class="caption" content='<nt:image-description/>'><h2><nt:image-description/></h2></div>
-										                                                </nt:conditional-include>
-										                                                <nt:conditional-include oncondition="${(imageDescription == '') && (imageSource != '')}">
-										                                                    <meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
-										                                                    <img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title="${news.titles[news.titleDetailNum]} | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
-										                                                    <div class="caption" content='<nt:image-description/>'><h2><nt:image-description/> | Foto: <nt:image-source/></h2></div>
-										                                                </nt:conditional-include>
-										                                                <nt:conditional-include oncondition="${(imageDescription == '') && (imageSource == '')}">
-										                                                    <meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
-										                                                    <img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title='${news.titles[news.titleDetailNum]}' width="<%=width %>" height="<%=height %>" />
-										                                                </nt:conditional-include>
-										                                            </li>
-										                                        </nt:image-gallery>
-										                                    </ul>
-										                                </div>
-										                            </nt:conditional-include>
-										                        </nt:conditional-include>
-										
-										                        <nt:conditional-include oncondition="${news.imagescount == 0 && news.videoscount == 0}">
-										                            <div id="fotos">
-										                                <nt:preview-image>
-										                                        <c:set var="imageDescription" scope="page">
-										                                            <nt:image-description/>
-										                                        </c:set>
-										                                        <c:set var="imageSource" scope="page">
-										                                            <nt:image-source/>
-										                                        </c:set>
-										                                        <nt:conditional-include oncondition="${(imageDescription != '') && (imageSource != '')}">
-										                                            <img class="img-responsive" itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title="<nt:image-description/> | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
-										                                        </nt:conditional-include>
-										                                        <nt:conditional-include oncondition="${(imageDescription != '') && (imageSource == '')}">
-										                                            <img class="img-responsive" itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title='<nt:image-description/>' width="<%=width %>" height="<%=height %>" />
-										                                        </nt:conditional-include>
-										                                        <nt:conditional-include oncondition="${(imageDescription == '') && (imageSource != '')}">
-										                                            <meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
-										                                            <img class="img-responsive" itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title="${news.titles[news.titleDetailNum]} | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
-										                                        </nt:conditional-include>
-										                                        <nt:conditional-include oncondition="${(imageDescription == '') && (imageSource == '')}">
-										                                            <meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
-										                                            <img class="img-responsive" itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title='${news.titles[news.titleDetailNum]}' width="<%=width %>" height="<%=height %>" />
-										                                        </nt:conditional-include>
-										                                </nt:preview-image>
-										                            </div>
-										                        </nt:conditional-include>
-										          <!--/FIN MULTIMEDIA -->
-										          
-									<!--/image-container--></div>
 
+											<!--Cuerpo de la nota-->
 											     <p>
 										              	 <nt:body-splitter>
 									                                  <nt:polls-dynamic-position style="TS-ES/NOTA"></nt:polls-dynamic-position>
@@ -511,7 +247,8 @@
 									                                                     <%=bodyParagrahp%>
 									                           </nt:body-splitter>
 										               </p>
- 												<!--TAGS-->
+										          <!--/FinCuerpo de la nota-->
+ 										<!--TAGS-->
 												<div class="col-six">
 									                             <nt:tags-list separator=",">
 									                                 <nt:conditional-include onposition="1">
@@ -526,12 +263,14 @@
 									                                  </nt:conditional-include>
 									                              </nt:tags-list>
 												</div><!--col-six-->
-										         	 <!--/FIN TAGS-->
-										          
-										        <!--NOTICIAS RELACIONADAS-->
-										        
+										        <!--/FIN TAGS-->
+										          <p></p>
+										       <!--NOTICIAS RELACIONADAS-->
+										        <div class="row"></div>
+										       
+										       
 										              <div class="related_post">
-										          	 <h2 class=" relacionados">Relacionados</h2>
+										          	 <h2 class=" relacionados">Noticias Relacionadas</h2>
 										         		<ul class="relacionados1">
 													       <nt:news> 
 													              <c:set var="i" value="0" scope="page"/>
@@ -544,21 +283,24 @@
 													                                <nt:preview-image>
 													                                    <meta itemprop="description" content='${imageDescription}'>
 													                                    <%-- imagenes de las notas relacionadas --%>
-													                                    <img itemprop="contentURL" class="imgrela" src="<nt:image-path width='160' height='120' scaletype='1'/>" data-original="<nt:image-path width='160' height='120' scaletype='2'/>" width='160' height='120' alt="${imageDescription}" />
+													                                    <img itemprop="contentURL" class="imgrela" src="<nt:image-path width='100%' height='auto' scaletype='1'/>" data-original="<nt:image-path width='100%' height='auto' scaletype='2'/>" width='160' height='120' alt="${imageDescription}" />
 													                               </nt:preview-image><!--preview image-->
 													                            </nt:conditional-include><!--oncondition-->
 													                            <a href="<nt:link/>" title="<nt:title value='home' />" alt="<nt:title value='home' />">
 													                                <nt:title value="home" maxlength="50" />
 													                            </a>
-													                        </li> <!--col-xs-3 maincontent-->    
-													                                                                                           
+													                        </li> <!--col-xs-3 maincontent-->                                             
 													                   </c:if> <!--contador-->
 												           	        </nt:related-news><!--size-->
+												           	        </ul> 
 												         	</nt:news>
+												         	
 											      		</ul><!--relacionados1-->   
+											    
 												</div>	<!--related_post-->
-										            
-											   
+										         <!--/FIN NOTICIAS RELACIONADAS-->
+										        
+											   <br><br>
 											<!--COMENTARIOS FACEBOOK Y TELESUR-->
 												
 									                             <div class="comentarios row">
@@ -572,18 +314,14 @@
 
 									      <!-- RIGHT COLUMN-->
 												<aside class="col-md-4 sidebar sidebar-left">
-									
 													<div class="widget">
 														<cms:include page="../elements/TS_Common_RightColumn.jsp" >
-														<	cms:param name="template">Agenda</cms:param>
+														<cms:param name="template">News</cms:param>
 														</cms:include>
 													</div>
 												</aside>			
 										<!-- /FIN RIGHT COLUMN-->
-			
-												
-										         	 
-										         
+				         
 		</nt:news>  <!--general-->	
 		</div><!--row topspace-->
 	</div>	<!-- /container -->
@@ -697,7 +435,7 @@
 <!--LLAMADO DEL FOOTER TELESUR-->
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>--%>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="/system/modules/com.tfsla.diario.telesur/resources/js/template_jquery_integracion.js"></script>
 </body>
