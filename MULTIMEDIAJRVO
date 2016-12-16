@@ -1,0 +1,179 @@
+<%@ include file="TS_Common_Libraries.jsp" %>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+			<!-- Article main content -->
+<nt:news>
+<% String width = "460" ;
+String height = "345" ;
+int contadorVideo = 0;
+int contadorImg = 0;
+%>
+
+
+				  
+<main id="main">
+	<div class="row topspace">			  
+					     <!--CONTADOR PARA INDICADORES-->
+		<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+			<ol class="carousel-indicators">
+				<nt:image-gallery>
+					<li data-target="#myCarousel" data-slide-to="<%=contadorImg%>" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="<%=contadorVideo%>" class="active"></li>
+					<% contadorImg++; %><% contadorVideo++; %>	
+				</nt:image-gallery>	   
+			</ol>
+							    
+							
+			<nt:conditional-include oncondition="${news.detailPreview == 'imagen'}">
+							<!-- CONTENEDOR PARA FOTOGALERIA // CON SUS 4 CONDICIONALES DE DESCRIPCCION Y AUTOR -->					    
+				<nt:conditional-include oncondition="${news.imagescount > 0}">
+					<div class="carousel-inner" role="listbox">
+						<nt:image-gallery>
+							<div itemscope id="mislider" class=".itemscope item" itemtype="http://schema.org/ImageObject">						
+								<c:set var="imageDescription" scope="page"><nt:image-description/></c:set>			
+								<c:set var="imageSource" scope="page"><nt:image-source/></c:set>  
+								<!--descripcion y autor no vacios--> 
+								<nt:conditional-include oncondition="${(imageDescription != '') && (imageSource != '')}">
+									<img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title="<nt:image-description/> | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
+									<div class="caption" content='<nt:image-description/>'><h2><nt:image-description/> | Foto: <nt:image-source/></h2></div>
+								</nt:conditional-include>	
+								<!--descripcion no vacios // autor vacio--> 
+								<nt:conditional-include oncondition="${(imageDescription != '') && (imageSource == '')}">					
+									<img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title='<nt:image-description/>' width="<%=width %>" height="<%=height %>" />
+									<div class="caption" content='<nt:image-description/>'><h2><nt:image-description/></h2></div>
+								</nt:conditional-include>
+								<!--descripcion vacio // autor no vacio--> 
+								<nt:conditional-include oncondition="${(imageDescription == '') && (imageSource != '')}">
+									<meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
+									<img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title="${news.titles[news.titleDetailNum]} | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
+									<div class="caption" content='<nt:image-description/>'><h2><nt:image-description/> | Foto: <nt:image-source/></h2></div>
+								</nt:conditional-include>
+								<!--descripcion vacio // autor vacio--> 						
+								<nt:conditional-include oncondition="${(imageDescription == '') && (imageSource == '')}">
+									<meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
+									<img itemprop="contentURL" src="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title='${news.titles[news.titleDetailNum]}' width="<%=width %>" height="<%=height %>" />
+								</nt:conditional-include>
+							</div><!--mislider-->	
+						</nt:image-gallery>	
+					
+					
+				</nt:conditional-include>
+				<!--FIN CONTENEDOR PARA FOTOGALERIA // CON SUS 4 CONDICIONALES DE DESCRIPCCION Y AUTOR -->
+				
+				<nt:conditional-include oncondition="${news.videoscount > 0}">
+					
+						<c:set var="videopath" value="" /> 
+						<nt:video-flash>
+    							<div itemprop="video" itemscope itemtype="http://schema.org/ImageObject" id="mislider" class=".itemscope item" >
+    								<c:set var="videopath"><nt:video-path/>,<nt:video-thumbnail/>,<nt:video-title/></c:set>
+    								<meta itemprop="name" content='<nt:video-title/>' />
+    								<meta itemprop="publisher" content="<nt:video-publisher/>" />
+		  						<meta itemprop="thumbnailUrl" content="<nt:video-thumbnail/>" />
+								<meta itemprop="contentURL" content="<nt:video-path/>" />
+								<meta itemprop="keywords" content="<nt:video-tags/>" />	
+								<meta itemprop="duration" content="<nt:video-duration/>" />
+								<meta itemprop="bitrate" content="<nt:video-bitrate/>" />						
+								<cms:include page="TS_Common_VideoFlash.jsp">
+									<cms:param name="video">${videopath}</cms:param>
+									<cms:param name="imagen"><nt:video-thumbnail/></cms:param>
+									<cms:param name="titulo"><nt:video-title/></cms:param>
+									<cms:param name="width" value="100%"/>
+									<cms:param name="height" value="<%=height %>"/>
+								</cms:include>
+							</div>
+						</nt:video-flash>
+						
+						<nt:video-youtube>
+							<div itemprop="video" itemscope itemtype="http://schema.org/ImageObject" id="mislider" class=".itemscope item">
+								<meta itemprop="name" content='<nt:video-title/>' />
+								<meta itemprop="publisher" content="<nt:video-publisher/>" />
+								<meta itemprop="thumbnailUrl" content="//i1.ytimg.com/vi/<nt:video-youtubeid/>/hqdefault.jpg" />
+								<meta itemprop="contentURL" content="http://www.youtube.com/v/<nt:video-youtubeid/>" />
+				                      		<iframe id="player<%=contadorVideo%>" class="iframeYT" width="100%" height="<%=height %>" src="//www.youtube.com/embed/<nt:video-youtubeid/>?enablejsapi=1&version=3&playerapiid=player<%=contadorVideo%>" frameborder="0" allowfullscreen> </iframe>
+                                        			<% contadorVideo++; %>
+							</div><!--video-->
+						</nt:video-youtube>
+						
+						<nt:video-embedded>
+							<div itemprop="video" itemscope itemtype="http://schema.org/ImageObject" id="mislider" class=".itemscope item">
+								<meta itemprop="name" content='<nt:video-title/>' />
+								<nt:video-code />      
+							</div>
+						</nt:video-embedded>
+					
+				</nt:conditional-include> <!--FIN CONTENEDOR PARA VIDEOS FLASH YOUTUBE EMBEDDED -->
+				
+				
+				</div><!--carousel-inner-->
+					
+				   <!-- CONTROLES DE DERECHA E IZQUIERDA -->
+				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+				
+			 </nt:conditional-include><!--FIN ${news.detailPreview == 'imagen'}-->
+			
+			</div><!--carrusel slide-->		
+	</div><!--row topspace-->
+</main>			
+<%--
+			<nt:conditional-include oncondition="${news.imagescount == 0 && news.videoscount == 0}">
+				<div id="fotos">
+					        	<nt:preview-image>		
+									<c:set var="imageDescription" scope="page"><nt:image-description/></c:set>			
+		                               					<c:set var="imageSource" scope="page"><nt:image-source/></c:set>    
+										<nt:conditional-include oncondition="${(imageDescription != '') && (imageSource != '')}">					
+											<img itemprop="contentURL" src="../arte/grey.gif" data-original="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title="<nt:image-description/> | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
+											<div class="caption" content='<nt:image-description/>'><h2><nt:image-description/> | Foto: <nt:image-source/></h2></div>
+										</nt:conditional-include>
+										<nt:conditional-include oncondition="${(imageDescription != '') && (imageSource == '')}">					
+											<img itemprop="contentURL" src="../arte/grey.gif" data-original="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='<nt:image-description/>' title='<nt:image-description/>' width="<%=width %>" height="<%=height %>" />
+											<div class="caption" content='<nt:image-description/>'><h2><nt:image-description/></h2></div>
+										</nt:conditional-include>
+										<nt:conditional-include oncondition="${(imageDescription == '') && (imageSource != '')}">
+											<meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
+											<img itemprop="contentURL" src="../arte/grey.gif" data-original="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title="${news.titles[news.titleDetailNum]} | Foto: <nt:image-source/>" width="<%=width %>" height="<%=height %>" />
+											<div class="caption" content='<nt:image-description/>'><h2><nt:image-description/> | Foto: <nt:image-source/></h2></div>
+										</nt:conditional-include>
+										<nt:conditional-include oncondition="${(imageDescription == '') && (imageSource == '')}">
+											<meta itemprop="description" content='${news.titles[news.titleDetailNum]}'>
+											<img itemprop="contentURL" src="../arte/grey.gif" data-original="<nt:image-path width='<%=width %>' height='<%=height %>'  scaletype='2'/>" alt='${news.titles[news.titleDetailNum]}' title='${news.titles[news.titleDetailNum]}' width="<%=width %>" height="<%=height %>" />
+										</nt:conditional-include>	
+							</nt:preview-image> 
+				</div>
+		        </nt:conditional-include>
+--%>
+			
+	
+</nt:news>
+
+
+
+<!--Fotogaleria-->
+<script>
+    $( document ).ready(function() {
+           $("#mislider:first-child").addClass("active");
+    });
+
+
+</script>  
+<!--Fotogaleria-->
+    
+    
+    
+</body>
+</html>
